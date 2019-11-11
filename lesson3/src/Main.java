@@ -1,9 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-//        Animal dog = AnimalFactory.createAnimal("dog");
-//        dog.makeNoise(); // woof
-//        Animal cat = AnimalFactory.createAnimal("cat");
-//        cat.makeNoise(); // meow
 
         AnnotationParser parser = new AnnotationParser();
 
