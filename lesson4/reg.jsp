@@ -79,7 +79,7 @@ if (form){
 		<td width="500" align='right'>
 			Enter your e-mail: <input type='text' name='email'/>
 		</td>
-		<td width="350" align="justify">
+		<td width="350" align="justify" rowspan="3">
 		<% 		
 			out.write(""+errorText+"</font></ul>");
 		%>
