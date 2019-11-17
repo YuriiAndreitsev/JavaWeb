@@ -16,10 +16,10 @@ String location = request.getParameter("location");
 String checkbox = request.getParameter("checkbox");
 
 boolean ifError = false;
-StringBuilder errorText = new StringBuilder("<ul>");
+StringBuilder errorText = new StringBuilder("<font color='red'><ul>");
 
 if (email!=null){
-			Pattern pattern = Pattern.compile("^(?:(?=.*[a-z])(?:(?=.*[A-Z])(?=.*[\\d\\W])|(?=.*\\W)(?=.*\\d))|(?=.*\\W)(?=.*[A-Z])(?=.*\\d)).{8,20}$");
+			Pattern pattern = Pattern.compile("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,}$");
 			Matcher matcher = pattern.matcher(email);
 				if (matcher.matches()==false){
 					ifError = true;
@@ -79,9 +79,9 @@ if (form){
 		<td align='right'>
 			Enter your e-mail: <input type='text' name='email'/>
 		</td>
-		<td>
+		<td width="350" align="justify">
 		<% 		
-			out.write(""+errorText);
+			out.write(""+errorText+"</font></ul>");
 		%>
 		</td>
 	</tr>
