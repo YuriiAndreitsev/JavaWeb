@@ -76,7 +76,7 @@ if (form){
 			Fill in this registration form!
 	</h1>
 	<tr>
-		<td align='right'>
+		<td width="500" align='right'>
 			Enter your e-mail: <input type='text' name='email'/>
 		</td>
 		<td width="350" align="justify">
@@ -121,7 +121,7 @@ if (form){
 	</tr>
 	<tr>
 		<td align='right'>
-			Have you seen those small letters?: <font color='grey' size='1'><a href="agreement.txt"> (Read this carefully) </a>I dont want to read, I agree with everything!</font><input type="checkbox" name='checkbox' value="checked" checked></input>
+			Have you seen those small letters?: <font color='grey' size='1'><a href="agreement.txt"> (Read this carefully) </a></br>I dont want to read, I agree with everything!</font><input type="checkbox" name='checkbox' value="checked" checked></input>
 		</td>
 	</tr>
 	<tr>
