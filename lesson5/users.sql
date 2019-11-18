@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 18 2019 г., 00:11
+-- Время создания: Ноя 18 2019 г., 15:56
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `users`
 --
-CREATE DATABASE `users` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `users`;
 
 -- --------------------------------------------------------
 
@@ -42,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `location`, `gender`) VALUES
-(1, 'iamthemostextreme@gmail.c', 'Andrejtzev123', 'CRIMEA', 'male'),
+(1, 'aaaaaaaaaaaa@gmail.c', 'Aaaaaaaaaaa123', 'CRIMEA', 'male'),
 (2, 'com.app.main@gmail.com', 'Asdsdsdff123', 'CRIMEA', 'male'),
 (3, 'com2.app.main@gmail.com', 'Asdsdsdff1233', 'CRIMEA', 'male');
 
