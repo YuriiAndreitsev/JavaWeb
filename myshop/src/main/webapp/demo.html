@@ -1,0 +1,39 @@
+<h1>JS DEMO</h1>
+
+<script>
+    //script should be on the bottom ,because the page is loading, first, it's better to load images;
+    document.write("<h2>Hello From JS</h2>");
+    console.log("some log");
+    //alert("Hello!");
+
+    //DOM DOCUMENT OBJECT MODEL - head, body, script,
+</script>
+<h1 onclick="myFunc()">END</h1>
+<div id="myDiv1">
+    DIV1
+</div>
+<div id="myDiv2">
+    DIV2
+</div>
+<input type="text" id="myField"/>
+<input type="button" onclick="myFunc2()" value="myButton"/>
+
+<script>
+    function myFunc2() {
+        var someVar = document.getElementById("myField"); //now it is a refference for NODE div1
+        document.getElementById("myDiv2").innerHTML = someVar.value; //not innerHTML but value because it is a field
+        //alert("Div1: "+someVar.innerHTML);
+    }
+
+    function myFunc1() {
+        var someVar = document.getElementById("myDiv1"); //now it is a refference for NODE div1
+        document.getElementById("myDiv2").innerHTML = "HELLO";
+        //alert("Div1: "+someVar.innerHTML);
+    }
+
+    function myFunc() {
+        alert("hello!");
+    }
+
+    //myFunc();
+</script>

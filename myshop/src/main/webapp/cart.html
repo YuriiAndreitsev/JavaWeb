@@ -1,0 +1,59 @@
+<script        src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+
+<div>
+    <p id="product1">Product1</p>
+    <img onclick="minus(1)" src="images/minus.png" width="20" height="20"/>
+    <input type="text" id="qnt1" size = "1" value="1"/>
+    <img onclick="plus(1)" src="images/plus.png" width="20" height="20"/>
+    <input type = "button" onclick ="buyId(1)" value="buy"/>
+</div>
+
+
+<div>
+    <p id="product2">Product2</p>
+    <img onclick="minus(2)" src="images/minus.png" width="20" height="20"/>
+    <input type="text" id="qnt2" size = "1" value="1"/>
+    <img onclick="plus(2)" src="images/plus.png" width="20" height="20"/>
+    <input type = "button" onclick ="buyId(2)" value="buy"/>
+</div>
+
+<div>Cart: <div id = "cart"></div></div>
+
+<script>
+function minus(id) {
+    var t1 = document.getElementById("qnt"+id);
+    t1.value -= 1;
+
+}
+
+function plus(id) {
+    var t1 = document.getElementById("qnt"+id);
+    t1.value = +t1.value+1;
+
+}
+
+function buyId(id){
+
+    var product = document.getElementById("product"+id);
+    var qnt = document.getElementById("qnt"+id)
+    var cart = document.getElementById("cart");
+    $.ajax({
+        url:"1.php",
+        method : "POST",
+        data : {product : product.innterHTML, qnt : qnt.value},
+        success
+    })
+    //cart.innerHTML += product.innerHTML+" : "+ qnt.value;
+}
+
+</script>
+
+</body>
+</html>

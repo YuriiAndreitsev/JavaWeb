@@ -1,0 +1,39 @@
+<h1>
+    Calculation
+</h1>
+
+<div id="div1">
+
+    <input type='text' id='varA'>
+    <input type='text' id='varB'>
+
+</div>
+
+<div2 id = "div2">
+
+    <input type="button" onclick="calculate()" value="calculate"/>
+</div2>
+<br>
+<h1>
+<div3 id = 'divResult'>
+
+</div3>
+</h1>
+
+<div4 id="div4">
+    <input type="text" id="result"/>
+</div4>
+<script>
+
+    function calculate() {
+        var a = document.getElementById("varA").value;
+        var b = document.getElementById("varB").value;
+
+
+        var result = ((+a) + (+b));
+
+        document.getElementById("result").value=result;
+        document.getElementById("divResult").innerHTML = result;
+        //document.getElementById("result").innerHTML = result.value();
+    }
+</script>
