@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="myshopspring:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>myshopspring</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="myshopspring.war">
+      <element id="artifact" artifact-name="myshopspring:war exploded" />
+    </root>
+  </artifact>
+</component>
