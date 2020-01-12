@@ -55,8 +55,4 @@ public class Config {
 		em.setJpaProperties(getProperties());
 		return em;
 	}
-//	@Bean(name="gemService")
-//	public GemService getGemService() {
-//		return new GemService();
-//	}
 }

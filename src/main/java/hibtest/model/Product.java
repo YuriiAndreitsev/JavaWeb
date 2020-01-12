@@ -1,11 +1,16 @@
 package hibtest.model;
 
+import org.hibernate.annotations.Proxy;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "products")
+@NamedQuery(name = "Product.getProductById", query = "select p from Product p") // from Product where id = :id
+//query = "select h from Hero h"
+//select p from Product where id = :id
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +22,7 @@ public class Product {
     @Column(name = "price")
     private int price;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "prodcat", joinColumns = {@JoinColumn(name = "product_id")}, inverseJoinColumns = {@JoinColumn(name = "category_id")})
     private Set<Category> categories = new HashSet<Category>();
 
@@ -75,5 +80,4 @@ public class Product {
     public void setPrice(int price) {
         this.price = price;
     }
-
 }
