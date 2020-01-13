@@ -22,15 +22,10 @@ public class ProductServletController {
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String getProductsPage(ModelMap model, HttpSession session, @RequestParam(value = "category", required = false) String category) {
 
-//        JSONObject j = new JSONObject();
-//        ProductControllerDAO product;
-//        factory = DAOFactory.getFactory(1);
-//        product = factory.getProductControllerDAO();
-
-//        DAOFactory factory = DAOFactory.getFactory(1);
-//        ProductControllerDAO product = factory.getProductControllerDAO();
         ApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
         ProductService productService = ctx.getBean(ProductService.class);
+
+
 
         List<Product> productList;
         if (category == null) {
@@ -46,6 +41,8 @@ public class ProductServletController {
             cartSize = m.keySet().size();
         }
 
+//        productService.getProductById(2).getImages().iterator().next().getImage();
+//        session.setAttribute("cart", productList);
         model.addAttribute("productList", productList);
         model.addAttribute("cartSize", String.valueOf(cartSize));
 

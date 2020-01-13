@@ -2,6 +2,7 @@ package com.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -11,22 +12,13 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "category")
-    private String name;
-    @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER)
+    private String category;
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
     private Set<Product> products = new HashSet<Product>();
 
-    public Category(String name, Set<Product> products) {
-        this.name = name;
+    public Category(String category, Set<Product> products) {
+        this.category = category;
         this.products = products;
-    }
-
-    @Override
-    public String toString() {
-        return "Category{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", products=" + products +
-                '}';
     }
 
     public void addProduct(Product product) {
@@ -36,7 +28,6 @@ public class Category {
     public Category() {
     }
 
-
     public int getId() {
         return id;
     }
@@ -45,11 +36,19 @@ public class Category {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCategory() {
+        return category;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 }

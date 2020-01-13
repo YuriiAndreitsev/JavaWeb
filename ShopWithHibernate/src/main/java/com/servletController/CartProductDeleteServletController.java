@@ -18,7 +18,7 @@ import java.util.Map;
 
 @Controller
 public class CartProductDeleteServletController {
-    @RequestMapping(value = "/cartdelete", method = RequestMethod.POST)
+    @RequestMapping(value = "/cartdelete", method = RequestMethod.GET)
     @ResponseBody
     public String deleteProductFromCart(ModelMap model, HttpSession session,
                                         @RequestParam(value = "deleteId", required = false) String deleteId,
@@ -29,7 +29,7 @@ public class CartProductDeleteServletController {
         ProductService productService = ctx.getBean(ProductService.class);
 
         Map<Product, Integer> productList = (Map<Product, Integer>) session.getAttribute("cart");
-
+//        Map<Product, Integer> productList = (Map<Product, Integer>) model.getAttribute("productList");
         if (deleteId != null) {
             int delId = Integer.parseInt(deleteId);
             Integer delQnt = Integer.valueOf(deleteQnt);

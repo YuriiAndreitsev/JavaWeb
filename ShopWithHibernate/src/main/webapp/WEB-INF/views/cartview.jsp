@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td>
-                <div id="productsleft${product.key.id}">Total Quantity : ${product.value }</div>
+                <div id="productsleft${product.key.id}">Total Quantity : ${product.value}</div>
                 <br>
                 <div id="totalPrice${product.key.id}">Total Price : ${product.value*product.key.price}</div>
             </td>
@@ -66,15 +66,14 @@
         var qnt = document.getElementById("qnt" + id);
         $.ajax({
             url: "./cartdelete.html",
-            type: "POST",
+            type: "GET",
             dataType: "json",
             data: {deleteId: id, deleteQnt: qnt.value},
             success:
                 function (data) {
-
                     document.getElementById("productsleft" + id).innerHTML = "Total Quantity : " + data.productqntleft;
                     document.getElementById("cart").innerHTML = data.cartSize;
-                    document.getElementById("totalPrice"+id).innerHTML = "Total Price : "+data.totalPrice;
+                    document.getElementById("totalPrice"+id).innerHTML = "Total Price : " + data.totalPrice;
                     document.getElementById("footerCart").innerHTML = data.cartSize;
                 },
             error: function () {

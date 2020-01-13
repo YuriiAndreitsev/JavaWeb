@@ -17,9 +17,19 @@ public class Test {
         UserService userService = ctx.getBean(UserService.class);
         ProductService productService = ctx.getBean(ProductService.class);
 
-        System.out.println(productService.getProductById(2).getName());
-//        List<Product> productList = productService.getProductsByCategories("cigars");
 
+        List<Product> productList = productService.getAllProducts();
+
+        for (Product p : productList) {
+            System.out.println(p.getImage());
+        }
+
+
+
+//        System.out.println(productService.getProductById(7).getImage());
+//        System.out.println(productService.getProductById(7).getCategories().iterator().next().getCategory());
+//        List<Product> productList = productService.getProductsByCategories("cigars");
+//
 //        for (Product p : productList) {
 //            System.out.println(p.getName());
 //        }

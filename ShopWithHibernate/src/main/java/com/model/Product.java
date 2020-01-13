@@ -2,7 +2,6 @@ package com.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -18,9 +17,44 @@ public class Product {
     @Column(name = "price")
     private int price;
 
+
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "prodcat", joinColumns = {@JoinColumn(name = "product_id")}, inverseJoinColumns = {@JoinColumn(name = "category_id")})
     private Set<Category> categories = new HashSet<Category>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "productimage", joinColumns = {@JoinColumn(name = "product_id")}, inverseJoinColumns = {@JoinColumn(name = "image_id")})
+    private Set<Images> images = new HashSet<>();
+
+    public String getImage() {
+        String image = null;
+        if (getImages().iterator().hasNext()) {
+            image = getImages().iterator().next().getImage();
+        }
+        return image;
+    }
+
+    public String getCategory() {
+        return getCategories().iterator().next().getCategory();
+    }
+
+
+    public Product(String name, String description, int price, Set<Category> categories, Set<Images> images) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.categories = categories;
+        this.images = images;
+    }
+
+    public Set<Images> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<Images> images) {
+        this.images = images;
+    }
 
     public Set<Category> getCategories() {
         return categories;
@@ -30,20 +64,16 @@ public class Product {
         this.categories = categories;
     }
 
-    public Product(String name, String description, int price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
-
-
     public void addCategories(Category category) {
         this.categories.add(category);
     }
 
-    public Product() {
+    public void addImages(Images image) {
+        this.images.add(image);
     }
 
+    public Product() {
+    }
 
     public int getId() {
         return id;
@@ -75,33 +105,5 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", categories=" + categories +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Product)) return false;
-        Product product = (Product) o;
-        return id == product.id &&
-                price == product.price &&
-                Objects.equals(name, product.name) &&
-                Objects.equals(description, product.description) &&
-                Objects.equals(categories, product.categories);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, description, price, categories);
     }
 }

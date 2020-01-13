@@ -4,6 +4,7 @@ package com.service;
 import com.model.Product;
 import com.repository.CategoryRepository;
 import com.model.Category;
+import com.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.repository.ProductRepository;
@@ -17,6 +18,8 @@ public class ProductService {
     ProductRepository productRepository;
     @Autowired
     CategoryRepository categoryRepository;
+    @Autowired
+    ImageRepository imageRepository;
 
     public Product addProduct(Product product, Category category) {
         category.addProduct(product);
@@ -38,6 +41,6 @@ public class ProductService {
     }
 
     public List<Product> getProductsByCategories(String category) {
-        return productRepository.getProductsByCategories(category);
+        return productRepository.getProductsByCategories(categoryRepository.getCategoryByCategory(category));
     }
 }
