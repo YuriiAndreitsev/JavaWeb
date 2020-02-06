@@ -1,6 +1,6 @@
 public class GoldMine {
 
-    private static volatile int gold = 1000;
+    private volatile int gold = 1000;
 
     public synchronized int getGold() {
         return gold;
